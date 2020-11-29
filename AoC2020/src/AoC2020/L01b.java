@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class L01b {
 	private static final Logger LOGGER = Logger.getLogger(L01b.class.getName());
-
+//test
 	private static List<Integer> moduler;
 
 	public static void run(String ext) {
