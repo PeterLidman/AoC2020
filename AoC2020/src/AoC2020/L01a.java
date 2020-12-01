@@ -4,23 +4,33 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class L01a {
-	private static final Logger LOGGER = Logger.getLogger(L01a.class.getName());
-
-	private static List<Integer> moduler;
+	private static List<Integer> expenses;
 
 	public static void run(String ext) {
 		try {
-			moduler = Files.readAllLines(Paths.get("./src/AoC2020/L01input" + ext + ".txt")).stream()
+			expenses = Files.readAllLines(Paths.get("./src/AoC2020/L01input" + ext + ".txt")).stream()
 					.map(Integer::valueOf).collect(Collectors.toList());
 		} catch (IOException e) {
-			LOGGER.info("Knas med filimport: " + e);
+			System.out.println("Knas med filimport: " + e);
 		}
-		LOGGER.info(
-				() -> String.format("Fuel consumption: %s", moduler.stream().mapToInt(i -> (int) (i / 3.0) - 2).sum()));
-	}
 
+		int a, b;
+		boolean working = true;
+
+		for (a = 0; (a < expenses.size() - 2) && working; a++) {
+			for (b = a + 1; (b < expenses.size() - 1) && working; b++) {
+//				System.out.println(a);
+//				System.out.println(b);
+				if (expenses.get(a) + expenses.get(b) == 2020) {
+					working = false;
+//					System.out.println(expenses.get(a));
+//					System.out.println(expenses.get(b));
+					System.out.println("Sum " + (expenses.get(a) * expenses.get(b)));
+				}
+			}
+		}
+	}
 }
