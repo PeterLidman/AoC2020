@@ -20,8 +20,8 @@ public class L01a {
 		int a, b;
 		boolean working = true;
 
-		for (a = 0; (a < expenses.size() - 2) && working; a++) {
-			for (b = a + 1; (b < expenses.size() - 1) && working; b++) {
+		for (a = 0; (a < expenses.size() - 1) && working; a++) {
+			for (b = a + 1; (b < expenses.size()) && working; b++) {
 //				System.out.println(a);
 //				System.out.println(b);
 				if (expenses.get(a) + expenses.get(b) == 2020) {

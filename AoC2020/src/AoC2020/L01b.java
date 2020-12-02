@@ -20,17 +20,11 @@ public class L01b {
 		int a, b, c;
 		boolean working = true;
 
-		for (a = 0; (a < expenses.size() - 3) && working; a++) {
-			for (b = a + 1; (b < expenses.size() - 2) && working; b++) {
-				for (c = b + 1; (c < expenses.size() - 1) && working; c++) {
-//					System.out.println(a);
-//					System.out.println(b);
-//					System.out.println(c);
+		for (a = 0; (a < expenses.size() - 2) && working; a++) {
+			for (b = a + 1; (b < expenses.size() - 1) && working; b++) {
+				for (c = b + 1; (c < expenses.size()) && working; c++) {
 					if (expenses.get(a) + expenses.get(b) + expenses.get(c) == 2020) {
 						working = false;
-//						System.out.println(expenses.get(a));
-//						System.out.println(expenses.get(b));
-//						System.out.println(expenses.get(c));
 						System.out.println("Sum " + (expenses.get(a) * expenses.get(b) * expenses.get(c)));
 					}
 				}
