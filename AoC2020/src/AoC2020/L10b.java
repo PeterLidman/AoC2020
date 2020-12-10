@@ -23,16 +23,16 @@ public class L10b {
 			if (curr - prev == 1) {
 				seq++;
 			} else {
-				poss *= getPossibleConsecZeros(seq);
+				poss *= alt(seq);
 				seq = 1;// reset
 			}
 			prev = curr;
 		}
-		poss *= getPossibleConsecZeros(seq);// sista hoppet
+		poss *= alt(seq);// sista hoppet
 		System.out.println("Possibities: " + poss);
 	}
 
-	private static int getPossibleConsecZeros(int in) { // e.g {1,1,1,2,4,7,13,26,54, ...}
+	private static int alt(int in) { // e.g {1,1,1,2,4,7,13,26,54, ...}
 		int ret = 0;
 		if (in < 3) {
 			return 1;
