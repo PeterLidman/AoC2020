@@ -69,6 +69,6 @@ public class L12b {
 			}
 //			System.out.println(a + " -> n" + sNPos + " e" + sEPos);
 		}
-		System.out.println("Manhattand distance: " + (Math.abs(sNPos) + Math.abs(sEPos)));
+		System.out.println("Manhattan distance: " + (Math.abs(sNPos) + Math.abs(sEPos)));
 	}
 }
