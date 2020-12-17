@@ -20,7 +20,10 @@ public class Main {
 //		L13a.run("1");		L13a.run("0");		L13b.run("1");		L13b.run("2");		L13b.run("0");
 //		L14a.run("1");		L14a.run("0");		L14b.run("2");		L14b.run("0");
 //		L15.run();
-		L16a.run("0");
-		L16b.run("0");
+//		L16a.run("0");		L16b.run("0");
+		L17a.run("1");
+		L17a.run("0");
+		L17b.run("1");
+		L17b.run("0");
 	}
 }
