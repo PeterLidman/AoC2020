@@ -22,9 +22,9 @@ public class Main {
 //		L15.run();
 //		L16a.run("0");		L16b.run("0");
 //		L17a.run("1");		L17a.run("0");		L17b.run("1");		L17b.run("0");
-		L18a.run("1");
-		L18a.run("0");
-		L18b.run("1");
-		L18b.run("0");
+//		L18a.run("1");		L18a.run("0");		L18b.run("1");		L18b.run("0");
+		L19a.run("1");
+		L19a.run("0");
+		L19b.run("0");
 	}
 }
