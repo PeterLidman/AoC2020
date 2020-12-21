@@ -18,7 +18,6 @@ public class L21a {
 				.collect(Collectors.toList());
 
 		Map<String, List<Set<String>>> aif = new HashMap<>();
-		Map<String, List<Set<String>>> nyaif = new HashMap<>();
 		List<Set<String>> ingred = new ArrayList<>();
 
 		int i = -1;
@@ -46,32 +45,28 @@ public class L21a {
 			}
 		}
 //		System.out.println(aif);
+		Map<String, Set<String>> nyaif = new HashMap<>();
 		for (String e : aif.keySet()) {
 			List<Set<String>> list = aif.get(e); // för varje allergen, leta upp samband
 			Set<String> gem = new HashSet<>(); // ett set med bara gemensamma
 			if (list.size() > 1) {
-				gem = list.get(0);
+				gem.addAll(list.get(0));
 				for (int g = 1; g < list.size(); g++) {
 					gem.retainAll(list.get(g));
 				}
 			} else {
-				gem = list.get(0);
+				gem.addAll(list.get(0));
 			}
 //			System.out.println("rensad:" + e + "innehåll " + gem);
-			List<Set<String>> ny = new ArrayList<>();
-			Set<String> deepcopy = new HashSet<>(gem);
-			ny.add(deepcopy);
-//			System.out.println("put " + e + "   :" + ny);
-			nyaif.put(e, ny);
+			nyaif.put(e, gem);
 		}
+//		System.out.println(aif);
 //		System.out.println(nyaif);
 		Map<String, String> perfMatch = new HashMap<>();
 		while (nyaif.size() > 0) {
 			for (String e : nyaif.keySet()) {
 				if (nyaif.get(e).size() == 1) {
-					if (nyaif.get(e).get(0).size() == 1) {
-						perfMatch.put(e, nyaif.get(e).get(0).stream().findFirst().get());
-					}
+					perfMatch.put(e, nyaif.get(e).stream().findFirst().get());
 				}
 			}
 //			System.out.println(perfMatch);
@@ -83,45 +78,21 @@ public class L21a {
 			}
 //			System.out.println(nyaif);
 			for (String e : nyaif.keySet()) {
-				Set<String> list = nyaif.get(e).get(0); // för varje allergen, rensa bort funna
 				Set<String> gem = new HashSet<>();
-				for (String h : list) {
+				for (String h : nyaif.get(e)) {
 					if (!perfMatch.containsValue(h)) {
 						gem.add(h);
 					}
 				}
-				nyaif.get(e).clear();
-				nyaif.get(e).add(gem);
+				nyaif.put(e, gem);
 			}
-//			System.out.println(nyaif);
 		}
-		System.out.println(":::::::::");
+//		System.out.println(aif);
+//		System.out.println(nyaif);
+//		System.out.println(perfMatch);		
 
-		aif = new HashMap<>();
-		i = -1;
-		while (++i < ingr.size()) {
-//			System.out.println("ingr " + ingr.get(i));
-			String s[] = ingr.get(i).split(" \\(contains ");
-			Set<String> a = new HashSet<>();
-			for (String b : s[0].split(" ")) {
-				a.add(b);
-			}
-			s[1] = s[1].substring(0, s[1].length() - 1);
-			for (String c : s[1].split(", ")) {
-				List<Set<String>> b = aif.get(c);
-				if (b == null) {
-					List<Set<String>> d = new ArrayList<>();
-					d.add(a);
-					aif.put(c, d);
-				} else {
-					b.add(a);
-					aif.put(c, b);
-				}
-			}
-		}
-		System.out.println(aif);
 		System.out.println(perfMatch);
-		System.out.println(ingred);
+//		System.out.println(ingred);
 
 		int count = 0;
 		for (Set<String> q : ingred) {
@@ -133,8 +104,6 @@ public class L21a {
 				}
 			}
 		}
-
 		System.out.println("count=" + count);
-
 	}
 }
