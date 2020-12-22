@@ -24,13 +24,16 @@ public class Main {
 //		L17a.run("1");		L17a.run("0");		L17b.run("1");		L17b.run("0");
 //		L18a.run("1");		L18a.run("0");		L18b.run("1");		L18b.run("0");
 //		L19a.run("1");		L19a.run("0");		L19b.run("0");
+//		L20a.run("1");		L20a.run("0");
 
-		// L20a.run("1"); L20a.run("0");
-		// L20b.run("1");kasta
-		// L20b.run("0");
+		// L20b.run("1"); kasta?
+//		L20b.run("0");
 
-		L21a.run("1");
-		L21a.run("0");
-		L21b.run("0");
+//		L21a.run("1");		L21a.run("0");		L21b.run("0");
+		
+		L22a.run("1");
+		L22a.run("0");
+		L22b.run("1");
+		L22b.run("0");
 	}
 }
