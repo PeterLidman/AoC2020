@@ -30,10 +30,8 @@ public class Main {
 //		L20b.run("0");
 
 //		L21a.run("1");		L21a.run("0");		L21b.run("0");
-		
-		L22a.run("1");
-		L22a.run("0");
-		L22b.run("1");
-		L22b.run("0");
+//		L22a.run("1");		L22a.run("0");		L22b.run("1");		L22b.run("0");
+		L23a.run("0");
+		L23b.run("0");
 	}
 }
